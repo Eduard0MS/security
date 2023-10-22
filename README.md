@@ -1,1 +1,2 @@
 # security
+o código inclui todas as partes de segurança em ordem. Lembre-se de substituir os valores de exemplo, como SECRET_KEY, cert_path, key_path, e ajustar as configurações de segurança de acordo com as necessidades específicas do seu aplicativo. Certifique-se de manter todas as dependências atualizadas e realizar testes de segurança regulares para garantir a proteção contínua contra ameaças.
