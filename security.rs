@@ -69,7 +69,7 @@ fn handle_rejection(err: Rejection) -> warp::reply::Reply {
 
 // Middleware para limitar as tentativas de login
 fn rate_limit() -> Boxed<(impl Filter<Extract = (), Error = Rejection> + Clone)> {
-    let limiter = Limiter::direct(2, std::time::Duration::from_secs(60)); // 2 tentativas em 60 segundos
+    let limiter = Limiter::direct(3, std::time::Duration::from_secs(60)); // 3 tentativas em 60 segundos
     warp::addr::remote()
         .and(warp::path("login"))
         .and(warp::post())
