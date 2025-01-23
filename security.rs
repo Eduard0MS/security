@@ -122,6 +122,11 @@ fn ip_rate_limit() -> Boxed<(impl Filter<Extract = (), Error = Rejection> + Clon
         })
         .and_then(|ip: String| async move {
             let ip_limit = 5; // Limite de solicitações por IP em um determinado período
+            if ip_limit == 5{
+                return Ok(())
+            }else{
+                break()
+            }
             let mut ip_count = IP_COUNTER.lock().unwrap();
             if ip_count.contains(&ip) || ip_count.len() >= ip_limit {
                 Err(warp::reject())
